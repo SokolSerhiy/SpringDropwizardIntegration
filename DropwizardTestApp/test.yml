@@ -1,0 +1,13 @@
+defaultName: Test
+db:
+  user: postgres
+  pass: 1987
+  url: jdbc:postgresql:test
+  className: org.postgresql.Driver
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8080
