@@ -10,4 +10,8 @@ public class MainApp extends DropwizardApplication<TestConfiguration>{
 	public static void main(String[] args) throws Exception {
 		MainApp.start(MainApp.class, args);
 	}
+
+	public MainApp() {
+		System.out.println("MainApp");
+	}
 }
