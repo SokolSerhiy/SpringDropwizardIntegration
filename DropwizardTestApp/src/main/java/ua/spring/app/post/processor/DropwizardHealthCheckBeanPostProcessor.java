@@ -5,10 +5,8 @@ import io.dropwizard.setup.Environment;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 import ua.spring.app.annotation.DropwizardHealthCheck;
 
-@Component
 public class DropwizardHealthCheckBeanPostProcessor implements BeanPostProcessor{
 
     private final Environment environment;
