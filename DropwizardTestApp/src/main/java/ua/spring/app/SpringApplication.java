@@ -12,8 +12,7 @@ public class SpringApplication<T extends Configuration, E extends DropwizardAppl
 
     private SpringApplication(T configuration, Environment environment, E annotatedClass) {
         super(registerDropwizard(configuration, environment));
-        scan(annotatedClass.getClass().getPackage().getName());
-//        this.register(annotatedClass.getClass());
+        this.register(annotatedClass.getClass());
         this.registerStopEvent(environment);
         this.refresh();
     }

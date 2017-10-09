@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import io.dropwizard.setup.Environment;
 import ua.spring.app.post.processor.DropwizardControllerAnnotationBeanPostProcessor;
 import ua.spring.app.post.processor.DropwizardHealthCheckBeanPostProcessor;
+import ua.spring.app.post.processor.DropwizardRunBeanPostProcessor;
 
 public class DropwizardConfiguration {
 	
@@ -21,5 +22,10 @@ public class DropwizardConfiguration {
 	@Bean
 	public BeanPostProcessor dropwizardHealthCheckBeanPostProcessor() {
 		return new DropwizardHealthCheckBeanPostProcessor(enviropment);
+	}
+	
+	@Bean
+	public BeanPostProcessor dropwizardRunBeanPostProcessor() {
+		return new DropwizardRunBeanPostProcessor();
 	}
 }

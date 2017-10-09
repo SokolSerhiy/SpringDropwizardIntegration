@@ -8,7 +8,7 @@ import ua.spring.app.annotation.EnableDropwizard;
 public class MainApp extends DropwizardApplication<TestConfiguration>{
 	
 	public static void main(String[] args) throws Exception {
-		MainApp.start(MainApp.class, args);
+		start(MainApp.class, args);
 	}
 
 	public MainApp() {
