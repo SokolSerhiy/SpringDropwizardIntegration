@@ -15,7 +15,6 @@ import ua.spring.app.annotation.EnableDropwizard;
 public class MainApp extends DropwizardApplication<TestConfiguration>{
 	
 	public static void main(String[] args) throws Exception {
-//		Class.forName("freemarker.template.Configuration");
 		start(MainApp.class, args);
 	}
 
