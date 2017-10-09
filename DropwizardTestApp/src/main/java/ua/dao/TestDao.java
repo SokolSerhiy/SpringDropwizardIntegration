@@ -2,7 +2,6 @@ package ua.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import ua.config.TestConfiguration;
 
 import javax.sql.DataSource;
 
@@ -11,7 +10,7 @@ public class TestDao  {
 
     private final JdbcTemplate template;
 
-    public TestDao(DataSource dataSource, TestConfiguration testConfiguration) {
+    public TestDao(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
 }
