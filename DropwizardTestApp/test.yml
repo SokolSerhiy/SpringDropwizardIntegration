@@ -11,3 +11,5 @@ server:
   connector:
     type: http
     port: 8080
+swagger:
+  resourcePackage: ua.resource
