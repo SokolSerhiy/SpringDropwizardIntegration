@@ -1,12 +1,14 @@
 package ua.spring.app;
 
-import io.dropwizard.Configuration;
-import io.dropwizard.setup.Environment;
+
 import org.eclipse.jetty.util.component.AbstractLifeCycle;
 import org.eclipse.jetty.util.component.LifeCycle;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import io.dropwizard.Configuration;
+import io.dropwizard.setup.Environment;
 
 public class SpringApplication<T extends Configuration, E extends DropwizardApplication<T>> extends AnnotationConfigApplicationContext {
 
@@ -33,6 +35,8 @@ public class SpringApplication<T extends Configuration, E extends DropwizardAppl
         beanFactory.registerSingleton("dropwizardEnviropment", environment);
         return beanFactory;
     }
+    
+    
 
     public static <T extends Configuration, E extends DropwizardApplication<T>> AnnotationConfigApplicationContext run(T configuration, Environment environment, E annotatedClass){
         return new SpringApplication<T, E>(configuration, environment, annotatedClass);

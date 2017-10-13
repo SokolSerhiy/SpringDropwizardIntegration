@@ -18,9 +18,7 @@ import io.swagger.annotations.Api;
 import ua.dao.AuthorDao;
 import ua.model.AuthorModel;
 import ua.service.KafkaProducer;
-import ua.spring.app.annotation.DropwizardController;
 
-@DropwizardController
 @Path("/author")
 @Produces(MediaType.APPLICATION_JSON)
 @Api("Author")

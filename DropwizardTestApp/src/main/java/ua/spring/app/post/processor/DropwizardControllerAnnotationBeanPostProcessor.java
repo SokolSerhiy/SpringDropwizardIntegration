@@ -1,10 +1,12 @@
 package ua.spring.app.post.processor;
 
 import io.dropwizard.setup.Environment;
+
+import javax.ws.rs.Path;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.lang.Nullable;
-import ua.spring.app.annotation.DropwizardController;
 
 public class DropwizardControllerAnnotationBeanPostProcessor implements BeanPostProcessor {
 
@@ -16,7 +18,7 @@ public class DropwizardControllerAnnotationBeanPostProcessor implements BeanPost
 
     @Nullable
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if(bean.getClass().isAnnotationPresent(DropwizardController.class)){
+        if(bean.getClass().isAnnotationPresent(Path.class)){
             environment.jersey().register(bean);
         }
         return bean;
