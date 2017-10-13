@@ -8,11 +8,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.lang.Nullable;
 
-public class DropwizardControllerAnnotationBeanPostProcessor implements BeanPostProcessor {
+public class DropwizardPathAnnotationBeanPostProcessor implements BeanPostProcessor {
 
     private final Environment environment;
 
-    public DropwizardControllerAnnotationBeanPostProcessor(Environment environment) {
+    public DropwizardPathAnnotationBeanPostProcessor(Environment environment) {
         this.environment = environment;
     }
 

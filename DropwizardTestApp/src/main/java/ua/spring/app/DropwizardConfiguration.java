@@ -5,9 +5,9 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 
 import io.dropwizard.setup.Environment;
-import ua.spring.app.post.processor.DropwizardControllerAnnotationBeanPostProcessor;
+import ua.spring.app.post.processor.DropwizardPathAnnotationBeanPostProcessor;
+import ua.spring.app.post.processor.DropwizardProviderAnnotationBeanPostProcessor;
 import ua.spring.app.post.processor.DropwizardHealthCheckBeanPostProcessor;
-import ua.spring.app.post.processor.DropwizardRunBeanPostProcessor;
 
 public class DropwizardConfiguration {
 	
@@ -15,8 +15,8 @@ public class DropwizardConfiguration {
 	Environment enviropment;
 	
 	@Bean
-	public BeanPostProcessor dropwizardControllerAnnotationBeanPostProcessor() {
-		return new DropwizardControllerAnnotationBeanPostProcessor(enviropment);
+	public BeanPostProcessor dropwizardPathAnnotationBeanPostProcessor() {
+		return new DropwizardPathAnnotationBeanPostProcessor(enviropment);
 	}
 	
 	@Bean
@@ -25,7 +25,7 @@ public class DropwizardConfiguration {
 	}
 	
 	@Bean
-	public BeanPostProcessor dropwizardRunBeanPostProcessor() {
-		return new DropwizardRunBeanPostProcessor();
+	public BeanPostProcessor dropwizardProviderAnnotationBeanPostProcessor() {
+		return new DropwizardProviderAnnotationBeanPostProcessor(enviropment);
 	}
 }

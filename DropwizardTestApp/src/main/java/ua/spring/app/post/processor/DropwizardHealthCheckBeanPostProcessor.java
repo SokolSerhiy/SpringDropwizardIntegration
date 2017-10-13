@@ -21,13 +21,4 @@ public class DropwizardHealthCheckBeanPostProcessor implements BeanPostProcessor
         }
         return bean;
     }
-
-    class HealthCheckRegistrationException extends RuntimeException{
-        
-		private static final long serialVersionUID = -1043651730682511419L;
-
-		public HealthCheckRegistrationException(String message) {
-            super(message);
-        }
-    }
 }
