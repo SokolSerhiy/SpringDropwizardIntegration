@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -44,6 +45,10 @@ public class AuthorDaoImpl implements AuthorDao{
 
 	@Override
 	public AuthorModel findOne(int id) {
-		return template.queryForObject("SELECT id, name, age FROM author WHERE id=?", new Object[]{id}, mapper);
+		try {
+			return template.queryForObject("SELECT id, name, age FROM author WHERE id=?", new Object[]{id}, mapper);
+		}catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 }

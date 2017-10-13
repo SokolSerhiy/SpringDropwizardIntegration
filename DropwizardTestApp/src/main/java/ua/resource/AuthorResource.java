@@ -16,6 +16,7 @@ import com.codahale.metrics.annotation.Timed;
 
 import io.swagger.annotations.Api;
 import ua.dao.AuthorDao;
+import ua.exception.CoolException;
 import ua.model.AuthorModel;
 import ua.service.KafkaProducer;
 
@@ -36,7 +37,7 @@ public class AuthorResource {
 	@GET
     @Timed
     public List<AuthorModel> get(){
-		kafkaProducer.send("Looking for all author");
+//		kafkaProducer.send("Looking for all author");
         return authorDao.findAll();
     }
 	
@@ -44,8 +45,10 @@ public class AuthorResource {
 	@Timed
 	@Path("/{id}")
 	public AuthorModel get(@PathParam("id") int id) {
-		kafkaProducer.send("Looking for author id="+id);
-		return authorDao.findOne(id);
+//		kafkaProducer.send("Looking for author id="+id);
+		AuthorModel authorModel = authorDao.findOne(id);
+		if(authorModel==null) throw new CoolException(String.format("Author with id %d not found", id), Response.Status.NOT_FOUND);
+		return authorModel;
 	}
 	
 	@POST
